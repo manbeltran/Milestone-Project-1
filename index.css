@@ -1,0 +1,27 @@
+.grid {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px;
+    align-content: center;
+    
+}
+
+.box {
+    
+    padding-bottom: 32%;
+    background-color: black;
+    border: 1px solid white;
+    margin-bottom: 2%;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    margin: auto;
+    text-align: center;
+}
