@@ -6,7 +6,7 @@ boxes = Array.from(boxes)
 
 let player1 = 'X'
 
-/*
+
 let winningCombinations = [
     [0,1,2],
     [3,4,5],
@@ -17,7 +17,7 @@ let winningCombinations = [
     [0,4,8],
     [2,4,6]
 ]
-*/
+
 boxes.forEach(function(box){
     box.addEventListener('click',function(){
         if(box.innerText.trim() != '') return //if box is NOT null, return and dont do anything
