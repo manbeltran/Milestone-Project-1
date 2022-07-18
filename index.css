@@ -12,16 +12,22 @@
 .box {
     
     padding-bottom: 32%;
-    background-color: black;
+    background-color: yellow;
     border: 1px solid white;
     margin-bottom: 2%;
 }
 
 body {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
     margin: auto;
+    text-align: center;
+}
+
+.box {
+    font-size: 8em;
     text-align: center;
 }
