@@ -1,14 +1,12 @@
+// defining variables to append elements into HTML
+const grid = document.getElementById('grid')
+const result = document.getElementById('resultMessage')
+const restart = document.getElementById('restart')
+//turn 1 will be the starting player, in this case 'X'
+let boxes;
+let turn1 = true;
 
-
-let boxes = document.querySelectorAll('.box')
-
-boxes = Array.from(boxes)
-
-let player1 = 'X';
-let player2 = 'O';
-let xTurn = true;
-let circleTurn;
-
+// all possible winning combinations in grid
 
 let winningCombinations = [
     [0,1,2],
@@ -21,37 +19,50 @@ let winningCombinations = [
     [2,4,6]
 ]
 
-boxes.forEach(function(box){
-    box.addEventListener('click',function(){
-        if(box.innerText.trim() != '') return //if box is NOT null, return and dont do anything
-        box.innerText = player1
-        player1 = player1 == 'X' ? 'O' : 'X' //if current player is already X, insert O, else place an X
-    })
-})
+//gameStart function will run upon loading, will generate the grid, passing empty string to signify game being loaded for the first time
+
+gameStart ('');
+
+// Adding Event listener to call on gamestart function every time the restart button is selected
+
+restart.addEventListener('click', () => gameStart('restart'));
+
+//for loop that iterates 9 times in order to create a 3x3 grid
+
+function gameStart (type) {
+    let box
+    for(let i=0;i<9;i++){
+
+        box = document.createElement('div');
+        box.classList.add('box');
+        grid.appendChild(box);
+
+        box.addEventListener('click', click, {once : true}); // once a user clicks, one event will be triggered and box will not be clicked twice
+    }
 
 
-//function to check for winner
+}
+// this function handles logic for what happens after a click, adds X and O and changes turn, also checks for win condition every time a user selects a square
+function click(e) {
+    let selectedBox = e.target;
 
-function checkWinner(e){
-    
+    if (turn1) {
+        selectedBox.innerText = 'X';
+        turn1 = false;
+    } else {
+        selectedBox.innerText = 'O'
+        turn1 = true;
+    }
+
+    let currentBox = selectedBox.innerText // stores current selection in this variable
+
+    let win = checkForWinner(currentBox); // will check if win condition has been met
+
+    if (win){
+        over('win', currentBox);
+    } else if (draw()){
+        over('draw', currentBox)
+    }
 }
 
-
-
-
-/*
-
-*/
-
-//function to add class for winner
-
-
-
-
-//refresh page
-
-document.getElementById('restart').addEventListener('click', function(){
-    location.reload();
-    return false;
-})
-
+// function to iterate through away of winning combos, and for every array inside of it
