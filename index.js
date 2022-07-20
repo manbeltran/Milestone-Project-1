@@ -4,7 +4,10 @@ let boxes = document.querySelectorAll('.box')
 
 boxes = Array.from(boxes)
 
-let player1 = 'X'
+let player1 = 'X';
+let player2 = 'O';
+let xTurn = true;
+let circleTurn;
 
 
 let winningCombinations = [
@@ -28,6 +31,21 @@ boxes.forEach(function(box){
 
 
 //function to check for winner
+
+function checkWinner(e){
+    
+}
+
+
+
+
+/*
+
+*/
+
+//function to add class for winner
+
+
 
 
 //refresh page
