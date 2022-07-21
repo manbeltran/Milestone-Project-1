@@ -95,3 +95,5 @@ document.getElementById('restart').addEventListener('click', function(){
     location.reload();
     return false;
 })
+
+//hehehehahaha
