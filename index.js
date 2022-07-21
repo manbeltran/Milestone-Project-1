@@ -5,7 +5,7 @@ const restart = document.getElementById('restart')
 //turn 1 will be the starting player, in this case 'X'
 let boxes;
 let turn1 = true;
-
+let currentCombo;
 // all possible winning combinations in grid
 
 let winningCombinations = [
@@ -42,6 +42,8 @@ function gameStart (type) {
 
 
 }
+
+boxes = document.querySelectorAll('.box') // ties the 
 // this function handles logic for what happens after a click, adds X and O and changes turn, also checks for win condition every time a user selects a square
 function click(e) {
     let selectedBox = e.target;
@@ -66,3 +68,30 @@ function click(e) {
 }
 
 // function to iterate through away of winning combos, and for every array inside of it
+
+function checkForWinner(currentBox){
+    return winningCombinations.some((combo) => {
+        correctCombo = combo;
+        return combo.every((item) => boxes[item].innerText === currentBox)
+    })
+}
+
+//game over by win function
+function over (type, currentBox){
+
+    if(type==='win') {{
+        result.innerText = currentBox + " wins the game!"
+    }
+
+    } else {
+        result.innerText = "Match is a draw!"
+    }
+
+}
+
+//game draw function
+
+document.getElementById('restart').addEventListener('click', function(){
+    location.reload();
+    return false;
+})
