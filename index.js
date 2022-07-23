@@ -95,11 +95,12 @@ function over (type, currentBox){
 
 //game draw function
 //https://www.youtube.com/watch?v=O0tfoMN9Rjo reference for building draw conditions
-
+//https://attacomsian.com/blog/javascript-convert-nodelist-to-array#:~:text=In%20modern%20JavaScript%2C%20the%20simplest,an%20array%20const%20divsArr%20%3D%20Array.
+//Reference for creating an array from a nodelist ^^
 
 function draw (){
-
-    return [...boxes].every(
+    const boxArray = Array.from(boxes)
+    return boxArray.every(
         (box) => box.innerText ==="X" || box.innerText === "O"
     );
 
