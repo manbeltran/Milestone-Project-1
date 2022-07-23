@@ -21,17 +21,17 @@ let winningCombinations = [
 
 //gameStart function will run upon loading, will generate the grid, passing empty string to signify game being loaded for the first time
 
-gameStart ('');
+gameStart ();
 
 // Adding Event listener to call on gamestart function every time the restart button is selected
 
-restart.addEventListener('click', () => gameStart('restart'));
+//restart.addEventListener('click', () => gameStart('restart'));
 
 //for loop that iterates 9 times in order to create a 3x3 grid
 
-function gameStart (type) {
+function gameStart () {
     let box
-    for(let i=0;i<9;i++){
+    for(let x=0;x<9;x++){
 
         box = document.createElement('div');
         box.classList.add('box');
@@ -43,7 +43,7 @@ function gameStart (type) {
 
 }
 
-boxes = document.querySelectorAll('.box') // ties the 
+boxes = document.querySelectorAll('.box') // ties the variable boxes to the individual boxes RETURNS NODE LIST
 // this function handles logic for what happens after a click, adds X and O and changes turn, also checks for win condition every time a user selects a square
 function click(e) {
     let selectedBox = e.target;
@@ -67,11 +67,13 @@ function click(e) {
     }
 }
 
-// function to iterate through away of winning combos, and for every array inside of it
 
+
+// function to iterate through array of winning combos, and for every array inside of it
+// https://www.youtube.com/watch?v=O0tfoMN9Rjo reference for building win condition
 function checkForWinner(currentBox){
     return winningCombinations.some((combo) => {
-        correctCombo = combo;
+        
         return combo.every((item) => boxes[item].innerText === currentBox)
     })
 }
@@ -84,16 +86,28 @@ function over (type, currentBox){
     }
 
     } else {
-        result.innerText = "Match is a draw!"
+        result.innerText = "Match is a draw!";
     }
+    grid.style.pointerEvents = 'none';
+    
 
 }
 
 //game draw function
+//https://www.youtube.com/watch?v=O0tfoMN9Rjo reference for building draw conditions
+
+
+function draw (){
+
+    return [...boxes].every(
+        (box) => box.innerText ==="X" || box.innerText === "O"
+    );
+
+}
+//restart game event listener on button
 
 document.getElementById('restart').addEventListener('click', function(){
     location.reload();
     return false;
 })
 
-//hehehehahaha

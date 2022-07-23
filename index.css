@@ -7,6 +7,7 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    
 }
 
 .grid {
@@ -17,6 +18,7 @@
     align-content: center;
     grid-template-columns: repeat(3,auto);
     border: 1px solid black;
+    
 }
 
  .box {
@@ -37,35 +39,16 @@
 }
 
 .restart {
-    /* visibility: hidden; */
+   
     border: 1px solid black;
+    
 }
 h1 {
-    margin: auto;
+    margin: 1em;
     text-align: center;
     font-size: 50px;
+    max-height: 33%;
 
     
 }
 
-/*
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-h1 {
-    margin: auto;
-    text-align: center;
-    
-}
-
-.box {
-    font-size: 8em;
-    text-align: center;
-}
-
-.box.highlight{
-    background-color: #f7b32c;
-} 
- */
