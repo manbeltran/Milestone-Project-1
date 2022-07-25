@@ -23,9 +23,7 @@ let winningCombinations = [
 
 gameStart ();
 
-// Adding Event listener to call on gamestart function every time the restart button is selected
 
-//restart.addEventListener('click', () => gameStart('restart'));
 
 //for loop that iterates 9 times in order to create a 3x3 grid
 
@@ -71,6 +69,7 @@ function click(e) {
 
 // function to iterate through array of winning combos, and for every array inside of it
 // https://www.youtube.com/watch?v=O0tfoMN9Rjo reference for building win condition
+////https://www.w3schools.com/jsref/jsref_some.asp reference for learning about .some method
 function checkForWinner(currentBox){
     return winningCombinations.some((combo) => {
         
